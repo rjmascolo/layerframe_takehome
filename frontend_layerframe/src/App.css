@@ -1,5 +1,36 @@
+#restaurant-feed {
+  overflow-y: scroll;
+  height: 24em
+}
+.field {
+  margin: 0 1em !important;
+}
+
 .App {
-  text-align: center;
+  background-color: #488B49;
+  height:100vh;
+  padding: 3em;
+}
+
+#form-field {
+  margin-right: 1em;
+}
+
+.main-grid {
+  background-color: white;
+  border-radius: .2em;
+  margin: 1em 1em;
+  padding: 1em;
+  display:grid;
+  grid-template-columns: 30% 70%;
+  grid-template-rows:28em;
+  overflow: hidden
+}
+
+.flex {
+  display:flex;
+  justify-content: flex-start;
+  margin: 1em 0;
 }
 
 .App-logo {
@@ -7,22 +38,13 @@
   height: 80px;
 }
 
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
-}
-
-.App-title {
-  font-size: 1.5em;
-}
-
-.App-intro {
-  font-size: large;
-}
-
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
+}
+
+
+h1 {
+  font-family: 'Creepster', cursive;
+  text-align: center;
 }

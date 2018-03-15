@@ -19,8 +19,10 @@ class ZipcodeForm extends React.Component {
   render() {
     return (
         <Form onSubmit={this.handleSubmit}>
+          <div className="flex">
           <Form.Field>
             <input
+              id="form-field"
               placeholder="Enter Zipcode"
               name="zipcode"
               value={this.state.zipcode}
@@ -28,6 +30,7 @@ class ZipcodeForm extends React.Component {
             />
           </Form.Field>
           <Button type="submit">Submit</Button>
+          </div>
         </Form>
     )
   }
