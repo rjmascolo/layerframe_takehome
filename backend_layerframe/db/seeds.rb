@@ -2,7 +2,6 @@ require 'json'
 require 'open-uri'
 
 conn = ActiveRecord::Base.connection
-document = open("https://data.cityofnewyork.us/api/views/43nn-pn8j/rows.csv?accessType=DOWNLOAD")
 
 conn.execute("
   CREATE TEMP TABLE tmp (
@@ -27,15 +26,13 @@ conn.execute("
   )"
 )
 
+file = Rails.root.join('lib', 'DOHMH_New_York_City_Restaurant_Inspection_Results.csv')
+
 begin
   sql_command = "
   COPY tmp (camis, dba, boro, building, street, zipcode, phone, cuisine, inspection_date, action, violation_code, violation_description, critical_flag, score, grade, grade_date, record_date, inspection_type)
-  FROM STDIN;"
-  conn.execute(sql_command) do
-      document.each do |line|
-        conn.put_copy_data line
-      end
-    end
+  FROM '#{file}' CSV HEADER;"
+  conn.execute(sql_command)
 rescue => e
   error = e.message
   puts "CSV file is not formatted correctly. Below is the error
