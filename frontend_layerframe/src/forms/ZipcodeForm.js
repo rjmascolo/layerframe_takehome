@@ -1,9 +1,11 @@
 import React from 'react'
 import {Button, Form} from 'semantic-ui-react'
+import {NYCzipcodes} from '../data'
 
 class ZipcodeForm extends React.Component {
   state = {
-      zipcode: ""
+      zipcode: "",
+      error: false
   }
 
   handleChange = (e) => {
@@ -12,8 +14,14 @@ class ZipcodeForm extends React.Component {
 
   handleSubmit = (e) => {
     e.preventDefault()
-    this.props.enterZipcode(this.state.zipcode)
-    this.setState({zipcode: ""} )
+    let {zipcode} = this.state
+    if(NYCzipcodes.includes(parseInt(zipcode))) {
+      this.props.enterZipcode(this.state.zipcode)
+      this.setState({zipcode: "", error: false} )
+
+    } else {
+      this.setState({error: true})
+    }
   }
 
   render() {
@@ -28,6 +36,7 @@ class ZipcodeForm extends React.Component {
               value={this.state.zipcode}
               onChange={this.handleChange}
             />
+            {this.state.error ? <p>That is not a NYC Zipcode</p>:null}
           </Form.Field>
           <Button type="submit">Submit</Button>
           </div>
