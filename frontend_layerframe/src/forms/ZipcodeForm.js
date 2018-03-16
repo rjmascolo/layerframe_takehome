@@ -1,5 +1,5 @@
 import React from 'react'
-import {Button, Form} from 'semantic-ui-react'
+import {Button, Form, Message} from 'semantic-ui-react'
 import {NYCzipcodes} from '../data'
 
 class ZipcodeForm extends React.Component {
@@ -26,6 +26,7 @@ class ZipcodeForm extends React.Component {
 
   render() {
     return (
+      <div>
         <Form onSubmit={this.handleSubmit}>
           <div className="flex">
           <Form.Field>
@@ -36,11 +37,13 @@ class ZipcodeForm extends React.Component {
               value={this.state.zipcode}
               onChange={this.handleChange}
             />
-            {this.state.error ? <p>That is not a NYC Zipcode</p>:null}
+
           </Form.Field>
           <Button type="submit">Submit</Button>
           </div>
         </Form>
+        {this.state.error ? <Message negative id="margin"><p>That is not a NYC Zipcode</p></Message>:null}
+      </div>
     )
   }
 }
