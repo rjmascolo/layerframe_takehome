@@ -25,6 +25,8 @@ ActiveRecord::Schema.define(version: 20180314212046) do
     t.string "cuisine"
     t.string "inspection_date"
     t.integer "score"
+    t.decimal "lat"
+    t.decimal "long"
   end
 
 end

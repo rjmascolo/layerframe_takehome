@@ -1,3 +1,14 @@
+.App {
+  background-color: #488B49;
+  height:100vh;
+  padding: 3em;
+}
+
+.header-detail {
+  text-align: center;
+  font-weight: bold;
+}
+
 #restaurant-feed {
   overflow-y: scroll;
   height: 24em
@@ -6,11 +17,6 @@
   margin: 0 1em !important;
 }
 
-.App {
-  background-color: #488B49;
-  height:100vh;
-  padding: 3em;
-}
 #margin{
   margin: 0 2em 1em 0;
 }
@@ -36,18 +42,9 @@
   margin: 1em 0;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
-}
-
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
-
-
 h1 {
   font-family: 'Creepster', cursive;
   text-align: center;
+  text-shadow: 2px 2px white;
+  font-size: 3em;
 }

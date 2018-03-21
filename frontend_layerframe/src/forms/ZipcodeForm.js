@@ -32,7 +32,7 @@ class ZipcodeForm extends React.Component {
           <Form.Field>
             <input
               id="form-field"
-              placeholder="Enter Zipcode"
+              placeholder="Enter NYC Zipcode"
               name="zipcode"
               value={this.state.zipcode}
               onChange={this.handleChange}

@@ -10,6 +10,8 @@ class CreateInspections < ActiveRecord::Migration[5.1]
       t.string :cuisine
       t.string :inspection_date
       t.integer :score
+      t.decimal :lat, null:true
+      t.decimal :long, null:true
 
     end
   end
