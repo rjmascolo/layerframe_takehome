@@ -5,10 +5,10 @@ const { compose, withProps, withStateHandlers } = require("recompose");
 
 const RestMap = compose(
   withStateHandlers(() => ({
-    isOpen: false,
+    isOpen: {},
   }), {
-    onToggleOpen: (e) => {
-      console.log(e)
+    onToggleOpen: ({isOpen}) => {
+
     }
   }),
   withScriptjs,
@@ -25,11 +25,11 @@ const RestMap = compose(
           position={{lat: parseFloat(res.lat), lng: parseFloat(res.long)}}
           title={res.name}
           key={i}
-          // onClick={props.onToggleOpen}
+          onClick={() => props.openInfoWindow(i)}
         >
-        {/* {props.isOpen === i && <InfoWindow onCloseClick={props.onToggleOpen}>
-        {res.name}
-      </InfoWindow>} */}
+        { props.infoWindowOpen === i && <InfoWindow onCloseClick={() => props.openInfoWindow("")}>
+        <p>{res.name}</p>
+      </InfoWindow>}
     </Marker>
       }) : null}
     </GoogleMap>

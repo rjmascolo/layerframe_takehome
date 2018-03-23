@@ -13,6 +13,8 @@ class RestaurantsMap extends React.Component {
           containerElement={<div style={{ height: `400px` }} />}
           mapElement={<div style={{ height: `100%` }} />}
           restaurants= {this.props.restaurants}
+          infoWindowOpen= {this.props.infoWindowOpen}
+          openInfoWindow= {this.props.openInfoWindow}
         />
       </div>
     )
