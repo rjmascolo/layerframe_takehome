@@ -28,7 +28,10 @@ const RestMap = compose(
           onClick={() => props.openInfoWindow(i)}
         >
         { props.infoWindowOpen === i && <InfoWindow onCloseClick={() => props.openInfoWindow("")}>
-        <p>{res.name}</p>
+        <div>
+          <strong><p>{res.name}</p></strong>
+          <p>{`${res.building} ${res.street} ${res.boro}, NY`}</p>
+        </div>
       </InfoWindow>}
     </Marker>
       }) : null}
