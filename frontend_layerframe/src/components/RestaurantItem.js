@@ -1,5 +1,5 @@
 import React from 'react'
-import { Feed, Image, Icon } from 'semantic-ui-react'
+import { Feed } from 'semantic-ui-react'
 
 
 class RestaurantItem extends React.Component {
@@ -10,7 +10,6 @@ class RestaurantItem extends React.Component {
     <Feed.Event
       id="notification-item"
       onMouseEnter={() => this.props.openInfoWindow(this.props.index)}
-      onMouseLeave={() => console.log("goodbye")}
       >
       <Feed.Label icon='food'>
       </Feed.Label>

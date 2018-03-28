@@ -3,7 +3,6 @@ import './App.css';
 import ZipcodeForm from './forms/ZipcodeForm'
 import RestaurantsTable from './containers/RestaurantsTable'
 import RestaurantsMap from './containers/RestaurantsMap'
-import Geocode from "react-geocode";
 
 class App extends Component {
 
@@ -13,7 +12,8 @@ class App extends Component {
   }
 
   enterZipcode = (zipcode) => {
-    const URL = `http://localhost:3000/worst-restaurants?zipcode=${zipcode}`
+    const URL = `https://backend-worst-restaurants.herokuapp.com/worst-restaurants?zipcode=${zipcode}`
+    // const URL = `http://localhost:3000/worst-restaurants?zipcode=${zipcode}`
     fetch(URL).then(res => res.json()).then(inspections => {
       const newRestaurants = inspections.map( i => {
         return Object.assign(i.restaurant, {score: i.score})
@@ -28,7 +28,6 @@ class App extends Component {
   }
 
   render() {
-    console.log(this.state.restaurants[0])
     return (
       <div className="App">
         <h1>Worst Restaurants In Your Neighborhood</h1>

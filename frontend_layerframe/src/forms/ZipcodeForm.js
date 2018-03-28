@@ -15,7 +15,7 @@ class ZipcodeForm extends React.Component {
   handleSubmit = (e) => {
     e.preventDefault()
     let {zipcode} = this.state
-    if(NYCzipcodes.includes(parseInt(zipcode))) {
+    if(NYCzipcodes.includes(parseInt(zipcode, 10))) {
       this.props.enterZipcode(this.state.zipcode)
       this.setState({zipcode: "", error: false} )
 
