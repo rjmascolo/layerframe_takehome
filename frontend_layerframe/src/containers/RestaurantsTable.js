@@ -5,7 +5,7 @@ import RestaurantItem from '../components/RestaurantItem'
 class RestaurantsTable extends React.Component {
 
   render() {
-    const restaurants = this.props.restaurants.map( r => <RestaurantItem restaurant={r}/>)
+    const restaurants = this.props.restaurants.map( (r, i)=> <RestaurantItem key={i} index={i} restaurant={r} openInfoWindow={this.props.openInfoWindow}/>)
     return(
       <div>
         {this.props.restaurants.length > 0 ? <Feed id="restaurant-feed"> {restaurants} </Feed>  :

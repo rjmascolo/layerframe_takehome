@@ -7,7 +7,11 @@ class RestaurantItem extends React.Component {
   const {name, building, street, score} = this.props.restaurant
 
   return (
-    <Feed.Event id="notification-item">
+    <Feed.Event
+      id="notification-item"
+      onMouseEnter={() => this.props.openInfoWindow(this.props.index)}
+      onMouseLeave={() => console.log("goodbye")}
+      >
       <Feed.Label icon='food'>
       </Feed.Label>
       <Feed.Content>

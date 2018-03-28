@@ -37,7 +37,7 @@ class App extends Component {
           <div className="main-grid">
             <div>
               <ZipcodeForm enterZipcode={this.enterZipcode} />
-              <RestaurantsTable restaurants={this.state.restaurants} />
+              <RestaurantsTable restaurants={this.state.restaurants} openInfoWindow={this.openInfoWindow} />
             </div>
             <RestaurantsMap
               restaurants={this.state.restaurants}
