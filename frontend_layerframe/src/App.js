@@ -14,8 +14,12 @@ class App extends Component {
 
   enterZipcode = (zipcode) => {
     const URL = `http://localhost:3000/worst-restaurants?zipcode=${zipcode}`
-    fetch(URL).then(res => res.json()).then(restaurants => {
-      this.setState({restaurants: restaurants})
+    fetch(URL).then(res => res.json()).then(inspections => {
+      const newRestaurants = inspections.map( i => {
+        return Object.assign(i.restaurant, {score: i.score})
+      })
+
+      this.setState({restaurants: newRestaurants})
     })
   }
 
@@ -24,7 +28,7 @@ class App extends Component {
   }
 
   render() {
-
+    console.log(this.state.restaurants[0])
     return (
       <div className="App">
         <h1>Worst Restaurants In Your Neighborhood</h1>
