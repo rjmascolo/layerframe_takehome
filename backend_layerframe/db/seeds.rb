@@ -16,7 +16,7 @@ nyc_zipcodes = [11211, 11385, 10456, 10171, 10003, 11102, 10173, 10306, 10057, 1
   def restaurant_params(c)
       {
         name: c["dba"],
-        cuisine: c["cuisine_description"],
+        cuisine: c["cuisine"],
         zipcode: c["zipcode"],
         street: c["street"],
         building: c["building"],
@@ -72,14 +72,12 @@ File.open(document, 'r') do |file|
 end
 
 nyc_zipcodes.each{ |zip|
-  data = conn.execute("SELECT DISTINCT * FROM tmp WHERE score IS NOT NULL AND zipcode = '#{zip}' ORDER BY score DESC LIMIT 40")
+  data = conn.execute("SELECT * FROM tmp WHERE score IS NOT NULL AND zipcode = '#{zip}' ORDER BY score DESC LIMIT 200")
   data.each{ |inspec|
     restaurant = Restaurant.find_or_create_by(restaurant_params(inspec))
     Inspection.find_or_create_by(inspection_params(inspec,restaurant))
   }
 }
-
-byebug
 
 # data = conn.execute("SELECT dba, building, street, boro, zipcode, cuisine FROM tmp GROUP BY dba, building, street, boro, zipcode, cuisine")
 # byebug

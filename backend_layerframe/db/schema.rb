@@ -23,8 +23,6 @@ ActiveRecord::Schema.define(version: 20180323214209) do
     t.string "grade"
     t.string "grade_date"
     t.string "action"
-    t.decimal "lat"
-    t.decimal "long"
   end
 
   create_table "restaurants", force: :cascade do |t|
@@ -34,6 +32,8 @@ ActiveRecord::Schema.define(version: 20180323214209) do
     t.string "building"
     t.string "street"
     t.string "phone_number"
+    t.decimal "lat"
+    t.decimal "long"
   end
 
 end

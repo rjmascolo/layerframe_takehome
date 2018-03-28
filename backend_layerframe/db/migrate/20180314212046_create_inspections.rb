@@ -8,8 +8,6 @@ class CreateInspections < ActiveRecord::Migration[5.1]
       t.string :grade
       t.string :grade_date
       t.string :action
-      t.decimal :lat, null:true
-      t.decimal :long, null:true
 
     end
   end
